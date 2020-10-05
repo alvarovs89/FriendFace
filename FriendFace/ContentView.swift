@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+//    @Environment(\.managedObjectContext) var moc
+
+    @State private var users = [User]()
+    
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List(users, id: \.id) { user in
+                NavigationLink(destination: Text("Detail")) {
+                    Text("Row \\")
+                }
+            }
+            .onAppear(perform: loadData)
+            }
+        }
+
+
+    
+    func loadData () {
+        
+
+
+
     }
+
 }
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
